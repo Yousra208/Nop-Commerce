@@ -6,10 +6,10 @@ import org.openqa.selenium.WebDriver;
 public class P02_LoginPage {
     //define driver
     WebDriver driver;
-    public P02_LoginPage(WebDriver driver)
-    {
-        this.driver=driver;
-        }
+
+    public P02_LoginPage(WebDriver driver) {
+        this.driver = driver;
+    }
 
     public P02_LoginPage addUserEmail(String Email) {
         driver.findElement(this.email).sendKeys(Email);
@@ -27,32 +27,38 @@ public class P02_LoginPage {
         return this;
     }
 
-    //    //TODO:Define locators
-//    @FindBy(xpath = "//input[@class=\"email\"]") //driver.findelement(By.xpath("")
-//    WebElement Email;
-//    @FindBy(xpath = "//input[@class=\"password\"]")
-//    WebElement Password;
-//    @FindBy(xpath = "//button[text()=\"Log in\"]")
-//    WebElement LoginButton;
-//
-//    //define actions
-//    public void login(String email,String password){
-//        Email.sendKeys(email);
-//        Password.sendKeys(password);
-//        LoginButton.click();
-//    }
-//TODO// define locators by
-    private final By email= By.xpath("//input[@class=\"email\"]");
-    private final By password=By.xpath("//input[@class=\"password\"]");
-    private final By LoginBtn=By.xpath("//button[text()=\"Log in\"]");
+    public P02_LoginPage cLickonloginPage() {
+        driver.findElement(this.loginPage).click();
+        return this;
+    }
+
+    //TODO// define locators by
+    private final By loginPage = (By.xpath("//a[text()='Log in']"));
+    private final By email = By.xpath("//input[@class=\"email\"]");
+    private final By password = By.xpath("//input[@class=\"password\"]");
+    private final By LoginBtn = By.xpath("//button[text()=\"Log in\"]");
+    private final By logoutButton = By.xpath("//a[@class='ico-logout']");
+
+    private final By incorrectLoginMessage = By.xpath("//div[@class='message-error validation-summary-errors']");
 
 
     //TODO:define setters and getters
 
     // TODO: define actions
-    public void login(String email,String password){
+    public void login(String email, String password) {
+        driver.findElement(LoginBtn).click();
         driver.findElement(this.email).sendKeys(email);
         driver.findElement(this.password).sendKeys(password);
         driver.findElement(LoginBtn).click();
     }
+
+    public boolean logoutButton() {
+        return driver.findElement(this.logoutButton).getText().equals("Log out");
+    }
+    public boolean loginErrorMessage(){
+        return driver.findElement(this.incorrectLoginMessage).getText().equals("Login was unsuccessful. Please correct the errors and try again.\n" +
+                "No customer account found");
+    }
+
 }
+

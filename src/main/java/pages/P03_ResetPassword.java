@@ -17,7 +17,9 @@ public class P03_ResetPassword {
     private final By sendBtn = By.xpath("//button[@name='send-email']");
 
 
-    private static final By successMsg = By.xpath("//div[@class='bar-notification success']");
+    private final By successMsg = By.xpath("//div[@class='bar-notification success']");
+    //private final By confirmPasswordReset = By.xpath("//p[text()='Email with instructions has been sent to you.']");
+
 
     public P03_ResetPassword getLoginBtn() {
         driver.findElement(this.LoginBtn).click();
@@ -38,14 +40,7 @@ public class P03_ResetPassword {
         driver.findElement(this.sendBtn).click();
         return this;
     }
-
-    public P03_ResetPassword viewSuccessMsg() {
-
-        if (driver.findElement(successMsg).isDisplayed()) {
-            System.out.println("Email sent to reset password successfully!");
-        } else {
-            System.out.println("Password reset failed!");
-        }
-        return this;
+    public boolean confirmResetPassword() {
+        return driver.findElement(this.successMsg).getText().equals("Email with instructions has been sent to you.");
     }
 }

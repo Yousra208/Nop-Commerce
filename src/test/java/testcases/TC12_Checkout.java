@@ -1,22 +1,21 @@
 package testcases;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.P01_Registration;
-import pages.P02_LoginPage;
-import pages.P06_SelectCurrency;
+import pages.*;
 
 import static testcases.TC01_Registeration.*;
 import static testcases.TC01_Registeration.PASSWORD;
 
-
-public class TC06_SwitchCurrencies extends Test_Base {
-    P06_SelectCurrency selectCurrency;
+public class TC12_Checkout extends Test_Base{
 
     @Test
-    public void selectCurrency_P() throws InterruptedException {
+    public void Checkout_P(){
         new P01_Registration(driver).openRegistrationPage().addFirst_name(First_Name).addLast_name(Last_Name).addBirth_day().addBirth_month().addBirth_year().addEmail(EMAIL).addPassword(PASSWORD).addConfirm_password(PASSWORD).clickRegisterBtn();
         new P02_LoginPage(driver).cLickonloginPage().addUserEmail(EMAIL).addUserPassword(PASSWORD).ClickLoginBtn();
-        new P06_SelectCurrency(driver).getCurrencyList();
-        Thread.sleep(2000);
+        new P11_AddToCart(driver).AddFirstProductToCart().OpenCartPage();
+        new P12_Checkout(driver).CheckTermsCheckbox().ClickCheckOutButton();
+
+        Assert.assertTrue(new P12_Checkout(driver).checkoutConfirmation());
     }
 }

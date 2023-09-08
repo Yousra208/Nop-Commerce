@@ -16,85 +16,34 @@ public class P01_Registration {
     }
 
 
-    //    public P02_Registration(WebDriver driver) {
-//        PageFactory.initElements(driver, this);
-//    }
-//
-//    @FindBy(xpath = "//input[@name='FirstName']")
-//    WebElement First_Name;
-//
-//    @FindBy(xpath = "//input[@name='LastName']")
-//    WebElement Last_Name;
-//    @FindBy(id = "Email")
-//    WebElement Mail;
-//    @FindBy(id = "Password")
-//    WebElement Pass;
-//    @FindBy(xpath = "//Select[@name='DateOfBirthDay']")
-//    WebElement birthDay;
-//
-//    @FindBy(xpath = "//Select[@name='DateOfBirthMonth']")
-//    WebElement birthMonth;
-//    @FindBy(xpath = "//Select[@name='DateOfBirthYear']")
-//    WebElement birthYear;
-//    @FindBy(id = "ConfirmPassword")
-//    WebElement Confirm_Password;
-//    @FindBy(xpath = "//button[@name='register-button']")
-//    WebElement RegisterBtn;
-
-    ////    define actions
-//       public void registration(String firstname, String lastname, String mail, String pass, String confirm_Password) throws InterruptedException {
-//        First_Name.sendKeys(firstname);
-//        Last_Name.sendKeys(lastname);
-//
-//
-//    // select.selectByIndex(2);
-//        birthDay.click();
-//        Select selectDay = new Select(birthDay);
-//        selectDay.selectByIndex(new Random().nextInt(selectDay.getOptions() .size()));
-//        Thread.sleep(1000);
-//
-//        birthMonth.click();
-//        Select selectMonth = new Select(birthMonth);
-//        selectMonth.selectByIndex(new Random().nextInt(selectMonth.getOptions().size()));
-//        Thread.sleep(1000);
-//        //selectMonth.selectByVisibleText("March");
-//
-//        birthYear.click();
-//        Select selectYear = new Select(birthYear);
-//        selectYear.selectByIndex(new Random().nextInt(selectYear.getOptions().size()));
-//        Thread.sleep(1000);
-//        //selectYear.selectByValue("1994");
-//
-//        Mail.sendKeys(mail);
-//        Pass.sendKeys(pass);
-//        Confirm_Password.sendKeys(confirm_Password);
-//
-//        RegisterBtn.click();
-//      }
-//     TODO: define locators By
+    //     TODO: define locators By
+    private final By registrationPage = By.xpath("//a[@class= 'ico-register']");
     private final By first_name = By.xpath("//input[@name='FirstName']");
     private final By last_name = By.xpath("//input[@name='LastName']");
     private final By email = By.id("Email");
      private final  By birth_day = By.xpath("//Select[@name='DateOfBirthDay']");
     private final By birth_month = By.xpath("//Select[@name='DateOfBirthMonth']");
-
-
-
     private final By birth_year = By.xpath("//Select[@name='DateOfBirthYear']");
     private final By Password = By.id("Password");
     private final By Confirm_password = By.id("ConfirmPassword");
     private final By RegisterBtn = By.xpath("//button[@name='register-button']");
+    private final By confirmRegistration=By.xpath("//div[@class=\"result\"]");
+    private final By confirmPasswordError = By.xpath("//span[text()='The password and confirmation password do not match.']");
+    private final By existingEmailMessage = By.xpath("//div[@class='message-error validation-summary-errors']");
+
+    public P01_Registration openRegistrationPage() {
+        driver.findElement(registrationPage).click();
+        return this;
+    }
 
     public P01_Registration addFirst_name(String firstName) {
         driver.findElement(this.first_name).sendKeys(firstName);
         return this;
     }
-//
     public P01_Registration addLast_name(String lastName) {
         driver.findElement(this.last_name).sendKeys(lastName);
         return this;
     }
-
     public P01_Registration addEmail(String email) {
         driver.findElement(this.email).sendKeys(email);
         return this;
@@ -103,7 +52,6 @@ public class P01_Registration {
     public P01_Registration addBirth_day() {
         select=new Select(driver.findElement(this.birth_day));
         select.selectByIndex(Utilities.generateRandomInteger(1,30));
-//        driver.findElement(this.birth_day);
         return this;
     }
 
@@ -133,30 +81,12 @@ public class P01_Registration {
         return this;
     }
 
-//    TODO:define setters and getters
+    public boolean confirmRegistrationSuccessfully(){
+         return driver.findElement(this.confirmRegistration).getText().equals("Your registration completed");
 
-    //     TODO: define actions
-    public void registration(String first_name, String last_name, String email, String password, String confirm_password) throws InterruptedException {
-        driver.findElement(this.first_name).sendKeys(first_name);
-        driver.findElement(this.last_name).sendKeys(last_name);
-        driver.findElement(this.email).sendKeys(email);
-        driver.findElement(this.Password).sendKeys(password);
-
-        driver.findElement(this.Confirm_password).sendKeys(confirm_password);
-
-        Select day = new Select(driver.findElement(birth_day));
-        day.selectByIndex(new Random().nextInt(day.getOptions().size()));
-      Thread.sleep(1000);
-
-        Select month = new Select(driver.findElement(birth_month));
-        day.selectByIndex(new Random().nextInt(month.getOptions().size()));
-        Thread.sleep(1000);
-
-        Select year = new Select(driver.findElement(birth_year));
-        day.selectByIndex(new Random().nextInt(year.getOptions().size()));
-        Thread.sleep(1000);
-        driver.findElement(RegisterBtn).click();
-
+    }
+    public boolean emilExists_N() {
+        return driver.findElement(this.existingEmailMessage).isDisplayed();
     }
 }
 

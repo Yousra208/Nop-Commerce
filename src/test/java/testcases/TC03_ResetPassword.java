@@ -1,7 +1,9 @@
 package testcases;
 
 import org.openqa.selenium.By;
+import org.testng.Assert;
 import org.testng.annotations.Test;
+import pages.P02_LoginPage;
 import pages.P03_ResetPassword;
 
 public class TC03_ResetPassword extends Test_Base{
@@ -15,7 +17,7 @@ public class TC03_ResetPassword extends Test_Base{
         resetPassword = new P03_ResetPassword(driver);
         new P03_ResetPassword(driver).getLoginBtn().clickForgotPasswordBtn().addRecoveryEmail(Email).clickSendBtn();
         Thread.sleep(1000);
-        new P03_ResetPassword(driver).viewSuccessMsg();
+        Assert.assertTrue(new P03_ResetPassword(driver).confirmResetPassword());
 
     }
 }

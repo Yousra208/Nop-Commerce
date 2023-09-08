@@ -18,7 +18,7 @@ public class P06_SelectCurrency {
 
     public P06_SelectCurrency getCurrencyList() {
         select=new Select(driver.findElement(this.currencyOptions));
-        select.selectByIndex(Utilities.generateRandomInteger(1,2));
+        select.selectByIndex(Utilities.generateRandomInteger(0,1));
         return this;
     }
 }
