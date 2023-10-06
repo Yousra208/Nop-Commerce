@@ -1,6 +1,5 @@
 # NopCommerce
 
-![XYZ Bank Logo](# XYZ Bank
 
 ![NopCommerce Logo](https://static.vecteezy.com/system/resources/thumbnails/009/020/508/small/xyz-logo-xyz-letter-xyz-letter-logo-design-initials-xyz-logo-linked-with-circle-and-uppercase-monogram-logo-xyz-typography-for-technology-business-and-real-estate-brand-vector.jpg)
 
