@@ -18,8 +18,8 @@ public class P10_AddToCompareList {
     private final By addToComparelist = By.xpath("/html/body/div[6]/div[3]/div/div/div/div/div[4]/div[2]/div[3]/div/div[2]/div[3]/div[2]/button[2]");
     private final By SuccessBar = By.xpath("//div[@class='bar-notification success']");
 
-
-    public boolean ProductAddedToComparelist() {
+    public boolean ProductAddedToComparelist()
+    {
         return driver.findElement(this.SuccessBar).isDisplayed();
     }
 

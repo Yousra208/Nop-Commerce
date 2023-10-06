@@ -9,6 +9,16 @@ public class P16_PaymentInformation {
     WebDriver driver;
     Select select;
 
+    private final By paymentCard = By.id("CreditCardType");
+    private final By cardHolderName = By.xpath("//input[@name='CardholderName']");
+    private final By cardNumber = By.xpath("//input[@name='CardNumber']");
+    private final By exipryMonth = By.xpath("//select[@name='ExpireMonth']");
+    private final By expiryYear = By.xpath("//select[@name='ExpireYear']");
+    private final By cardCode = By.xpath("//input[@name='CardCode']");
+    private final By saveCardDetails = By.xpath("//button[@class='button-1 payment-info-next-step-button']");
+    private final By successPaymentInformation = By.xpath("//div[@class='order-review-data']");
+
+
     public P16_PaymentInformation(WebDriver driver){
         this.driver = driver;
     }
@@ -31,7 +41,7 @@ public class P16_PaymentInformation {
 
     public P16_PaymentInformation selecttExipryMonth() {
         select=new Select(driver.findElement(this.exipryMonth));
-        select.selectByIndex(Utilities.generateRandomInteger(1,12));
+        select.selectByIndex(Utilities.generateRandomInteger(0,11));
         return this;
     }
 
@@ -53,15 +63,5 @@ public class P16_PaymentInformation {
     public boolean correctPaymentInformation() {
         return driver.findElement(successPaymentInformation).isDisplayed();
     }
-
-    private final By paymentCard = By.id("CreditCardType");
-    private final By cardHolderName = By.xpath("//input[@name='CardholderName']");
-    private final By cardNumber = By.xpath("//input[@name='CardNumber']");
-    private final By exipryMonth = By.xpath("//select[@name='ExpireMonth']");
-    private final By expiryYear = By.xpath("//select[@name='ExpireYear']");
-    private final By cardCode = By.xpath("//input[@name='CardCode']");
-    private final By saveCardDetails = By.xpath("//button[@class='button-1 payment-info-next-step-button']");
-    private final By successPaymentInformation = By.xpath("//table[@class='cart-total']");
-
 }
 

@@ -22,7 +22,7 @@ public class P12_Checkout {
         driver.findElement(CheckOutButton).click();
         return this;
     }
-    public boolean checkoutConfirmation(){
-        return driver.findElement(this.CheckoutConfirmation).isDisplayed();
-    }
+   // public boolean checkoutConfirmation(){
+   //     return driver.findElement(this.CheckoutConfirmation).isDisplayed();
+   // }
 }

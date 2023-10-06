@@ -3,8 +3,6 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-import java.util.Random;
-
 public class P08_TagSelection {
     WebDriver driver;
 
@@ -23,7 +21,6 @@ public class P08_TagSelection {
 
 
     private final By Category = By.xpath("//a[text()='Computers '][1]");
-    //private final By Tags = By.xpath("/html/body/div[6]/div[3]/div/div[2]/div[4]/div[2][index]");
     private final By Tag = By.xpath("//a[@href='/camera']");
     private final By TagSelectedConfirm = By.xpath("//div[@class='page product-tag-page']");
 

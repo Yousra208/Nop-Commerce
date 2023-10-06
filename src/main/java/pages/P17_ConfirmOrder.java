@@ -9,8 +9,9 @@ public class P17_ConfirmOrder {
     public P17_ConfirmOrder(WebDriver driver){
         this.driver = driver;
     }
-    private final By ConfirmOrderButton = By.xpath("//button[@class='button-1 confirm-order-next-step-button']");
-    private final By SuccessfulOrder = By.xpath("//div[@class='order-number']");
+    private final By ConfirmOrderButton = By.xpath("//button[@onclick='ConfirmOrder.save()']");
+    private final By SuccessfulOrder = By.xpath("//div[@class='section order-completed']");
+
     public P17_ConfirmOrder clickConfirmOrderButton() {
         driver.findElement(ConfirmOrderButton).click();
         return this;

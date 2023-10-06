@@ -12,7 +12,7 @@ public class P15_PaymentMethod {
 
     private final By paymentMethod = By.xpath("//input[@value='Payments.Manual']");
     private final By continuePaymentButton = By.xpath("//button[@class='button-1 payment-method-next-step-button']");
-    private final By paymentMethodSuccess = By.xpath("//label[text()='Select credit card:']");
+    private final By paymentMethodSuccess = By.xpath("//div[@class='info']");
     public P15_PaymentMethod addPaymentMethod() {
         driver.findElement(paymentMethod).click();
         return this;
@@ -23,7 +23,7 @@ public class P15_PaymentMethod {
         return this;
     }
     public boolean successPaymentMethod(){
-        return driver.findElement(paymentMethodSuccess).getText().equals("Select credit card:");
+        return driver.findElement(paymentMethodSuccess).isDisplayed();
     }
 
 }

@@ -15,10 +15,7 @@ import static drivers.DriverHolder.setDriver;
 
 public class Test_Base {
     WebDriver driver;
-    private ChromeOptions options;
-//    private static Faker faker = new Faker();
-//    private static String username = faker.name().username();
-//    private static String password = faker.internet().password();
+
     @Parameters("browser")
     @BeforeTest()
     public void setupDriver(String browser) throws InterruptedException {
@@ -31,8 +28,9 @@ public class Test_Base {
         driver.manage().window().maximize();
 
     }
-//    @AfterTest
-//    public void quit(){
-//        driver.quit();
-//    }
+    @AfterTest
+    public void quit(){
+        driver.quit();
+    }
+
 }

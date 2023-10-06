@@ -1,168 +1,124 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Nop-Commerce">
-<!--    <parameter name="browser" value="edge"/>-->
+    <parameter name="browser" value="edge"/>
 
-<!--    <test  name="Check Registeration with valid data">-->
-<!--        <parameter name="browser" value="edge"/>-->
-<!--        <classes>-->
-<!--            <class name="testcases.TC01_Registeration">-->
-<!--                <methods>-->
-<!--                    <include name="registerNewUser_P"/>-->
-<!--                </methods>-->
-<!--            </class>-->
-<!--        </classes>-->
-<!--    </test>-->
+    <test  name="Check Registeration with valid data">
+        <parameter name="browser" value="edge"/>
+        <classes>
+            <class name="testcases.TC01_Registeration">
+                <methods>
+                    <include name="newUserRegistration_P"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
 
 
-<!--    <test  name="Check login with valid data">-->
-<!--        <parameter name="browser" value="edge"/>-->
-<!--        <classes>-->
-<!--            <class name="testcases.TC02_Login">-->
-<!--                <methods>-->
-<!--                    <include name="Login_user_P"/>-->
-<!--                </methods>-->
-<!--            </class>-->
-<!--        </classes>-->
-<!--    </test>-->
-<!--    <test  name="Reset Password">-->
-<!--        <parameter name="browser" value="edge"/>-->
-<!--        <classes>-->
-<!--            <class name="testcases.TC03_ResetPassword">-->
+    <test  name="Check login with valid data">
+        <parameter name="browser" value="edge"/>
+         <classes>
+            <class name="testcases.TC02_Login">
+                <methods>
+                    <include name="login_user_P"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test  name="Reset Password">
+        <parameter name="browser" value="edge"/>
+        <classes>
+            <class name="testcases.TC03_ResetPassword">
+            </class>
+        </classes>
+    </test>
 
-<!--            </class>-->
-<!--        </classes>-->
-<!--    </test>-->
+        <test  name="Search for Product">
+            <parameter name="browser" value="edge"/>
+            <classes>
+                <class name="testcases.TC04_ProductSearch">
+                    <methods>
+                        <include name="searchProduct"/>
+                    </methods>
+                </class>
+            </classes>
+        </test>
 
-<!--        <test  name="Search for Product">-->
-<!--            <parameter name="browser" value="edge"/>-->
-<!--            <classes>-->
-<!--                <class name="testcases.TC04_ProductSearch">-->
-<!--                </class>-->
-<!--            </classes>-->
-<!--        </test>-->
+        <test  name="Select Category">
+            <parameter name="browser" value="edge"/>
+            <classes>
+                <class name="testcases.TC05_SelectCategory">
+                    <methods>
+                        <include name="selectCategory_P"/>
+                    </methods>
+                </class>
+            </classes>
+        </test>
 
-    <!--    <test  name="Select Category">-->
-    <!--        <parameter name="browser" value="edge"/>-->
-    <!--        <classes>-->
-    <!--            <class name="testcases.TC05_SelectCategory">-->
-    <!--                <methods>-->
-    <!--                    <include name="selectCategory_P"/>-->
-    <!--                </methods>-->
-    <!--            </class>-->
-    <!--        </classes>-->
-    <!--    </test>-->
+    <test  name="Select Currency">
+        <parameter name="browser" value="edge"/>
+        <classes>
+            <class name="testcases.TC06_SwitchCurrencies">
+                <methods>
+                    <include name="selectCurrency_P"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
 
-<!--    <test  name="Select Currency">-->
-<!--        <parameter name="browser" value="edge"/>-->
-<!--        <classes>-->
-<!--            <class name="testcases.TC06_SwitchCurrencies">-->
-<!--            </class>-->
-<!--        </classes>-->
-<!--    </test>-->
+    <test  name="Select Product Color">
+        <parameter name="browser" value="edge"/>
+        <classes>
+            <class name="testcases.TC07_ColorSelection">
+                <methods>
+                    <include name="selectColor_P"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
 
-<!--    <test  name="Select Product Color">-->
-<!--        <parameter name="browser" value="edge"/>-->
-<!--        <classes>-->
-<!--            <class name="testcases.TC07_ColorSelection">-->
-<!--                <methods>-->
-<!--                    <include name="selectColor_P"/>-->
-<!--                </methods>-->
-<!--            </class>-->
-<!--        </classes>-->
-<!--    </test>-->
+        <test  name="Select Product Tag">
+            <parameter name="browser" value="edge"/>
+            <classes>
+                <class name="testcases.TC08_TagSelection">
+                    <methods>
+                        <include name="SelectTag_P"/>
+                    </methods>
+                </class>
+            </classes>
+        </test>
 
-<!--        <test  name="Select Product Tag">-->
-<!--            <parameter name="browser" value="edge"/>-->
-<!--            <classes>-->
-<!--                <class name="testcases.TC08_TagSelection">-->
-<!--                    <methods>-->
-<!--                        <include name="SelectTag_P"/>-->
-<!--                    </methods>-->
-<!--                </class>-->
-<!--            </classes>-->
-<!--        </test>-->
+        <test  name="Add to Wishlist">
+            <parameter name="browser" value="edge"/>
+            <classes>
+                <class name="testcases.TC09_AddToWishlist">
+                    <methods>
+                        <include name="addProductToWishlist"/>
+                    </methods>
+                </class>
 
-<!--        <test  name="Add to Wishlist">-->
-<!--            <parameter name="browser" value="edge"/>-->
-<!--            <classes>-->
-<!--                <class name="testcases.TC09_AddToWishlist">-->
-<!--                    <methods>-->
-<!--                        <include name="addToWishlist_P"/>-->
-<!--                    </methods>-->
-<!--                </class>-->
-<!--            </classes>-->
-<!--        </test>-->
-<!--            <test  name="Add to Compare list">-->
-<!--                <parameter name="browser" value="edge"/>-->
-<!--                <classes>-->
-<!--                    <class name="testcases.TC10_AddToCompareList">-->
-<!--                        <methods>-->
-<!--                            <include name="addProductToComparelist"/>-->
-<!--                        </methods>-->
-<!--                    </class>-->
-<!--                </classes>-->
-<!--            </test>-->
-<!--                <test  name="Add product to Cart">-->
-<!--                    <parameter name="browser" value="edge"/>-->
-<!--                    <classes>-->
-<!--                        <class name="testcases.TC11_AddToCart">-->
-<!--                            <methods>-->
-<!--                                <include name="AddToCart_P"/>-->
-<!--                            </methods>-->
-<!--                        </class>-->
-<!--                    </classes>-->
-<!--                </test>-->
-<!--        <test  name="Checkout">-->
-<!--        <parameter name="browser" value="edge"/>-->
-<!--        <classes>-->
-<!--            <class name="testcases.TC12_Checkout">-->
-<!--                <methods>-->
-<!--                    <include name="Checkout_P"/>-->
-<!--                </methods>-->
-<!--            </class>-->
-<!--        </classes>-->
-<!--    </test>-->
-<!--    <test  name="BillingAddress">-->
-<!--        <parameter name="browser" value="edge"/>-->
-<!--        <classes>-->
-<!--            <class name="testcases.TC13_BillingAddress">-->
-<!--                <methods>-->
-<!--                    <include name="BillingAddress_P"/>-->
-<!--                </methods>-->
-<!--            </class>-->
-<!--        </classes>-->
-<!--    </test>-->
-<!--    <test  name="Shipping Method_P">-->
-<!--        <parameter name="browser" value="edge"/>-->
-<!--        <classes>-->
-<!--            <class name="testcases.TC14_ShippingMethod">-->
-<!--                <methods>-->
-<!--                    <include name="ShippingMethod_P"/>-->
-<!--                </methods>-->
-<!--            </class>-->
-<!--        </classes>-->
-<!--    </test>-->
-<!--    <test  name="Payment Method">-->
-<!--        <parameter name="browser" value="edge"/>-->
-<!--        <classes>-->
-<!--            <class name="testcases.TC15_PaymentMethod">-->
-<!--                <methods>-->
-<!--                    <include name="PaymentMethod_P"/>-->
-<!--                </methods>-->
-<!--            </class>-->
-<!--        </classes>-->
-<!--    </test>-->
-<!--    <test  name="Payment Card Details">-->
-<!--        <parameter name="browser" value="edge"/>-->
-<!--        <classes>-->
-<!--            <class name="testcases.TC16_PaymentInformation">-->
-<!--                <methods>-->
-<!--                    <include name="Payment_Information_P"/>-->
-<!--                </methods>-->
-<!--            </class>-->
-<!--        </classes>-->
-<!--    </test>-->
+            </classes>
+        </test>
+            <test  name="Add to Compare list">
+                <parameter name="browser" value="edge"/>
+                <classes>
+                    <class name="testcases.TC10_AddToCompareList">
+                        <methods>
+                            <include name="addProductToComparelist"/>
+                        </methods>
+                    </class>
+                </classes>
+            </test>
+    <test  name="Add to Cart">
+        <parameter name="browser" value="edge"/>
+        <classes>
+            <class name="testcases.TC11_AddToCart">
+                <methods>
+                    <include name="AddToCart_P"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
 
     <test  name="Confirm Order">
         <parameter name="browser" value="edge"/>

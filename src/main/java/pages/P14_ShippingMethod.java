@@ -14,7 +14,7 @@ public class P14_ShippingMethod {
 
     private final By shippingMethod = By.xpath("//input[@value='Ground___Shipping.FixedByWeightByTotal']");
     private final By continueShippingButton = By.xpath("//button[@class='button-1 shipping-method-next-step-button']");
-    private final By shippingSuccessful = By.xpath("//label[text()='Check / Money Order']");
+    private final By shippingSuccessful = By.xpath("//div[@class='section payment-method']");
     public P14_ShippingMethod addShippingMethod() {
         driver.findElement(shippingMethod).click();
         return this;

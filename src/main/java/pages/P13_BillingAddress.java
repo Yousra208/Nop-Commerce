@@ -12,18 +12,14 @@ public class P13_BillingAddress {
     public P13_BillingAddress(WebDriver driver) {
         this.driver = driver;
     }
-
-//    private final By firstName = By.xpath("//input[@name='BillingNewAddress.FirstName']");
-//    private final By lastName = By.xpath("//input[@name='BillingNewAddress.LastName']");
-//    private final By email = By.xpath("//input[@name='BillingNewAddress.Email']");
     private final By company = By.xpath("//input[@name='BillingNewAddress.Company']");
     private final By country = By.xpath("//select[@name='BillingNewAddress.CountryId']");
     private final By city = By.xpath("//input[@name='BillingNewAddress.City']");
     private final By postalCode=By.xpath("//input[@name='BillingNewAddress.ZipPostalCode']");
-    private final By address1 = By.xpath("//input[@name='BillingNewAddress.Address1']");
+    private final By address1 = By.id("BillingNewAddress_Address1");
     private final By phoneNumber = By.id("BillingNewAddress_PhoneNumber");
-    private final By continuButton = By.xpath("//button[@onclick='Billing.save()']");
-    private final By confirmBillingAddress= By.xpath("//div[@class='section shipping-method']");
+    private final By continueButton = By.xpath("//button[@onclick='Billing.save()']");
+    private final By confirmBillingAddress= By.xpath("//button[@onclick=\"Billing.save()\"]");
 
     public P13_BillingAddress addCompany(String companyName) {
         driver.findElement(this.company).sendKeys(companyName);
@@ -32,7 +28,7 @@ public class P13_BillingAddress {
 
     public P13_BillingAddress addCountry() {
         select=new Select(driver.findElement(this.country));
-        select.selectByIndex(Utilities.generateRandomInteger(1,12));
+        select.selectByIndex(Utilities.generateRandomInteger(0,15));
         return this;
     }
 
@@ -57,13 +53,17 @@ public class P13_BillingAddress {
     }
 
     public P13_BillingAddress clickContinuButton() throws InterruptedException {
-        driver.findElement(continuButton).click();
+        driver.findElement(continueButton).click();
         Thread.sleep(1000);
         return this;
     }
-
-    public boolean BillingAddressconfirmation(){
-        return driver.findElement(this.confirmBillingAddress).isDisplayed();
+    public P13_BillingAddress confirmBillingAddress() {
+        driver.findElement(confirmBillingAddress).click();
+        return this;
     }
+
+//    public boolean BillingAddressconfirmation(){
+//        return driver.findElement(this.confirmBillingAddress).isDisplayed();
+//    }
 
 }

@@ -2,66 +2,34 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Nop-Commerce">
 
-<!--    <test  name="Check Registeration with existing email">-->
-<!--        <parameter name="browser" value="edge"/>-->
-<!--        <classes>-->
-<!--            <class name="testcases.TC01_Registeration">-->
-<!--                <methods>-->
-<!--                    <include name="registerNewUser_P"/>-->
-<!--                </methods>-->
-<!--            </class>-->
-<!--        </classes>-->
-<!--    </test>-->
-
-    <test  name="Check Registeration with existing email">
+        <test  name="Check login with invalid email and valid password ">
+            <parameter name="browser" value="edge"/>
+            <classes>
+                <class name="testcases.TC02_Login">
+                    <methods>
+                        <include name="loginWithInvalidEmailandValidPassw0rd_N"/>
+                    </methods>
+                </class>
+            </classes>
+        </test>
+    <test  name="Check login with valid email and invalid password data">
         <parameter name="browser" value="edge"/>
         <classes>
-            <class name="testcases.TC01_Registeration">
+            <class name="testcases.TC02_Login">
                 <methods>
-                    <include name="emailExisting_N"/>
+                    <include name="loginWithValidEmailandInValidPassw0rd_N"/>
                 </methods>
             </class>
         </classes>
     </test>
-
-    <test  name="Check  existing email">
+    <test  name="Check login with invalid email and invalid password ">
         <parameter name="browser" value="edge"/>
         <classes>
-            <class name="testcases.TC01_Registeration">
+            <class name="testcases.TC02_Login">
                 <methods>
-                    <include name="emailExisting"/>
+                    <include name="loginWithInvalidEmailandInValidPassw0rd_N"/>
                 </methods>
             </class>
         </classes>
     </test>
-<!--        <test  name="Check login with invalid email and valid password ">-->
-<!--            <parameter name="browser" value="edge"/>-->
-<!--            <classes>-->
-<!--                <class name="testcases.TC02_Login">-->
-<!--                    <methods>-->
-<!--                        <include name="LoginWithInvalidEmailandValidPassw0rd_N"/>-->
-<!--                    </methods>-->
-<!--                </class>-->
-<!--            </classes>-->
-<!--        </test>-->
-<!--    <test  name="Check login with valid email and invalid password data">-->
-<!--        <parameter name="browser" value="edge"/>-->
-<!--        <classes>-->
-<!--            <class name="testcases.TC02_Login">-->
-<!--                <methods>-->
-<!--                    <include name="LoginWithValidEmailandInValidPassw0rd_N"/>-->
-<!--                </methods>-->
-<!--            </class>-->
-<!--        </classes>-->
-<!--    </test>-->
-<!--    <test  name="Check login with invalid email and invalid password password">-->
-<!--        <parameter name="browser" value="edge"/>-->
-<!--        <classes>-->
-<!--            <class name="testcases.TC02_Login">-->
-<!--                <methods>-->
-<!--                    <include name="LoginWithInvalidEmailandInValidPassw0rd_N"/>-->
-<!--                </methods>-->
-<!--            </class>-->
-<!--        </classes>-->
-<!--    </test>-->
 </suite>

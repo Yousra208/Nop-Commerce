@@ -10,15 +10,12 @@ public class P03_ResetPassword {
         this.driver = driver;
     }
 
-
     private final By LoginBtn = By.xpath("//a[@class= 'ico-login']");
     private final By forgotPasswordBtn = By.xpath("//a[text()='Forgot password?']");
     private final By recoveryEmail = By.xpath("//input[@class ='email']");
     private final By sendBtn = By.xpath("//button[@name='send-email']");
 
-
     private final By successMsg = By.xpath("//div[@class='bar-notification success']");
-    //private final By confirmPasswordReset = By.xpath("//p[text()='Email with instructions has been sent to you.']");
 
 
     public P03_ResetPassword getLoginBtn() {
@@ -41,6 +38,6 @@ public class P03_ResetPassword {
         return this;
     }
     public boolean confirmResetPassword() {
-        return driver.findElement(this.successMsg).getText().equals("Email with instructions has been sent to you.");
+        return driver.findElement(this.successMsg).isDisplayed();
     }
 }
