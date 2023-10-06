@@ -62,7 +62,7 @@ To set up the NopCommerce application locally, follow these steps:
 
 ## Introduction
 
-XYZ Bank is a banking application that provides various banking services and features. This repository contains the source code for the XYZ Bank application.
+ NopCommerce application  provides various Shopping services and features. This repository contains the source code for the NopCommerce application.
 
 ## Features
 
@@ -78,7 +78,7 @@ To set up the NopCommerce application locally, follow these steps:
 1. Clone the repository:
 *   git clone https://github.com/Shady1997/XYZ-Bank.git
 2. Navigate to the project directory:
-*   cd XYZ-Bank
+*   cd NopCommerce
 3. Install dependencies:
 *   npm install
 4. Configure the application:
